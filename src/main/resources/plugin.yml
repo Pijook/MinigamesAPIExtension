@@ -1,0 +1,7 @@
+name: MinigamesAPIExtension
+author: Pijok
+version: 1.0
+main: pl.pijok.apiextension.APIExtension
+depend:
+  - MiniGamesAPI
+  - Vault

@@ -33,6 +33,13 @@ public class APIExtension extends JavaPlugin {
             return;
         }
 
+        if(setupPlaceholders()){
+            Debug.log("&aPlaceholders set!");
+        }
+        else{
+            Debug.log("&cPlaceholder are disabled! Please install PlaceholderAPI 2.10.9");
+        }
+
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
         getServer().getPluginManager().registerEvents(new QuitListener(), this);
 
@@ -68,6 +75,16 @@ public class APIExtension extends JavaPlugin {
         }
 
         return pointsManager != null;
+    }
+
+    private boolean setupPlaceholders(){
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new Placeholders().register();
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public static Economy getEcon(){

@@ -5,3 +5,5 @@ main: pl.pijok.apiextension.APIExtension
 depend:
   - MiniGamesAPI
   - Vault
+softdepend:
+  - PlaceholderAPI

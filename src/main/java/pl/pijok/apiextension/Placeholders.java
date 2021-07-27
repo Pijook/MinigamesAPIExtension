@@ -27,9 +27,6 @@ public class Placeholders extends PlaceholderExpansion {
             return "";
         }
 
-        if(identifier.equals("balance")){
-            return "" + APIExtension.getPointsManager().profile(player).getPointsBalance();
-        }
         return null;
     }
 }

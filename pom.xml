@@ -13,8 +13,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -57,9 +57,9 @@
         <dependency>
             <groupId>pl.trollcraft</groupId>
             <artifactId>minigames-apis</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/minigames-apis-1.0.1-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/lib/minigames-apis-1.0.2-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>

@@ -8,12 +8,14 @@ import pl.pijok.apiextension.essentials.ChatUtils;
 import pl.pijok.apiextension.essentials.Debug;
 import pl.pijok.apiextension.listeners.JoinListener;
 import pl.pijok.apiextension.listeners.QuitListener;
+import pl.trollcraft.minigamesapi.model.points.AsyncPointsManager;
 import pl.trollcraft.minigamesapi.model.points.PointsManager;
 
 public class APIExtension extends JavaPlugin {
 
     private static Economy econ = null;
-    private static PointsManager pointsManager;
+    //private static PointsManager pointsManager;
+    private static AsyncPointsManager asyncPointsManager;
 
     @Override
     public void onEnable() {
@@ -67,14 +69,21 @@ public class APIExtension extends JavaPlugin {
             return false;
         }
 
-        try{
+        /*try{
             pointsManager = Bukkit.getServicesManager().getRegistration(PointsManager.class).getProvider();
+        }
+        catch (NullPointerException exception){
+            return false;
+        }*/
+
+        try{
+            asyncPointsManager = Bukkit.getServicesManager().getRegistration(AsyncPointsManager.class).getProvider();
         }
         catch (NullPointerException exception){
             return false;
         }
 
-        return pointsManager != null;
+        return asyncPointsManager != null;
     }
 
     private boolean setupPlaceholders(){
@@ -91,7 +100,11 @@ public class APIExtension extends JavaPlugin {
         return econ;
     }
 
-    public static PointsManager getPointsManager() {
+    /*public static PointsManager getPointsManager() {
         return pointsManager;
+    }*/
+
+    public static AsyncPointsManager getAsyncPointsManager() {
+        return asyncPointsManager;
     }
 }

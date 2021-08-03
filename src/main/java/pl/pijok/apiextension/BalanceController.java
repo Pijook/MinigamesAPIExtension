@@ -32,8 +32,6 @@ public class BalanceController {
                             Debug.log("&cSync failed!");
                         }
 
-                        Debug.log("Vault: " + APIExtension.getEcon().getBalance(player));
-                        Debug.log("MiniGames: " + pointsProfile.getPointsBalance());
                     });
                 }
             }
@@ -51,13 +49,13 @@ public class BalanceController {
                             Debug.log("&cSync failed!");
                         }
 
-                        Debug.log("Vault: " + APIExtension.getEcon().getBalance(player));
-                        Debug.log("MiniGames: " + pointsProfile.getPointsBalance());
+
                     });
                 }
             }
 
-
+            Debug.log("Vault: " + APIExtension.getEcon().getBalance(player));
+            Debug.log("MiniGames: " + pointsProfile.getPointsBalance());
         });
 
     }

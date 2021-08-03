@@ -7,3 +7,6 @@ depend:
   - Vault
 softdepend:
   - PlaceholderAPI
+commands:
+  debug:
+    usage: /debug

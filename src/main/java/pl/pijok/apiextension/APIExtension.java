@@ -4,6 +4,7 @@ import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.pijok.apiextension.commands.DebugCommand;
 import pl.pijok.apiextension.essentials.ChatUtils;
 import pl.pijok.apiextension.essentials.Debug;
 import pl.pijok.apiextension.listeners.JoinListener;
@@ -16,11 +17,14 @@ public class APIExtension extends JavaPlugin {
     private static Economy econ = null;
     //private static PointsManager pointsManager;
     private static AsyncPointsManager asyncPointsManager;
+    private static APIExtension instance;
 
     @Override
     public void onEnable() {
 
-        ChatUtils.setPrefix("&7[APIExtension]");
+        instance = this;
+
+        ChatUtils.setPrefix("&7[APIExtension] ");
         Debug.setPrefix("[APIExtension]");
 
         if (!setupEconomy() ) {
@@ -41,6 +45,8 @@ public class APIExtension extends JavaPlugin {
         else{
             Debug.log("&cPlaceholder are disabled! Please install PlaceholderAPI 2.10.9");
         }
+
+        getCommand("debug").setExecutor(new DebugCommand());
 
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
         getServer().getPluginManager().registerEvents(new QuitListener(), this);
@@ -106,5 +112,9 @@ public class APIExtension extends JavaPlugin {
 
     public static AsyncPointsManager getAsyncPointsManager() {
         return asyncPointsManager;
+    }
+
+    public static APIExtension getInstance() {
+        return instance;
     }
 }

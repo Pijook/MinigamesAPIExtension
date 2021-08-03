@@ -2,6 +2,7 @@ package pl.pijok.apiextension.essentials;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
+import pl.pijok.apiextension.APIExtension;
 
 public class Debug {
 
@@ -38,6 +39,24 @@ public class Debug {
     public static void log(Object a) {
         a = prefix + a;
         console.sendMessage(String.valueOf(a).replace("&", "§"));
+    }
+
+    public static void syncedLog(String a){
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(APIExtension.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                log(a);
+            }
+        });
+    }
+
+    public static void syncedLog(Object a){
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(APIExtension.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                log(a);
+            }
+        });
     }
 
 }
